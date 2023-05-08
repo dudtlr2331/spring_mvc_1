@@ -4,18 +4,15 @@ import hello.itemservice.domain.item.Item;
 import hello.itemservice.domain.item.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.*;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Controller
-@Repository("/basic/items")
+@RequestMapping("/basic/items")
 @RequiredArgsConstructor
 public class BasicItemController {
-
     private final ItemRepository itemRepository;
 
     @GetMapping
@@ -30,7 +27,7 @@ public class BasicItemController {
      */
     @PostConstruct
     public void init() {
-        itemRepository.save(new Item("itemA", 10000, 10));
-        itemRepository.save(new Item("itemB", 20000, 20));
+        itemRepository.save(new Item("testA", 10000, 10));
+        itemRepository.save(new Item("testB", 20000, 20));
     }
 }
